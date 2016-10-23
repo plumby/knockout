@@ -1,19 +1,20 @@
 // import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {addRandomNumber} from 'actions';
-import {getRandomNumbers} from 'reducers';
+import {editPlayer} from 'actions';
+import {getPlayers,isPlayerBeingEdited} from 'reducers'
 import renderer from './renderer';
 
 function mapStateToProps(state) {
   const props = {
-    randomList:getRandomNumbers(state)
+    players:getPlayers(state),
+    inEdit:isPlayerBeingEdited(state)
   };
   return props;
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = {addRandomNumber};
+  const actions = {editPlayer};
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }

@@ -9,6 +9,9 @@ export const getRandomNumbers = (state) =>
 export const getPlayers = (state) =>
   fromPlayers.getPlayers(state.players)
 
+export const isPlayerBeingEdited = (state) =>
+  fromPlayers.isPlayerBeingEdited(state.players);
+
 const rootReducer = combineReducers({
   randomNumbers,
   players

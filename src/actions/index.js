@@ -6,3 +6,11 @@ export function addRandomNumber() {
     number:Math.floor((Math.random() * 10) + 1)
   };
 }
+
+
+export function editPlayer(playerId) {
+  return {
+    type: types.EDIT_PLAYER,
+    playerId
+  };
+}
