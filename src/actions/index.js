@@ -1,3 +1,5 @@
+import * as api from 'api'
+import uuid from 'uuid'
 import types from './types';
 
 export function addRandomNumber() {
@@ -13,4 +15,16 @@ export function editPlayer(playerId) {
     type: types.EDIT_PLAYER,
     playerId
   };
+}
+
+export function register(registration) {
+
+  return dispatch => {
+    api.register(registration)
+      .then(dispatch({
+        type:types.REGISTER,
+        id:uuid.v4(),
+        player:registration
+      }))
+  }
 }

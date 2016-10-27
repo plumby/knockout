@@ -23,6 +23,7 @@ var config = {
       path.resolve(__dirname)
     ],
     alias: {
+      api: 'src/api',
       actions: 'src/actions',
       components: 'src/components',
       containers: 'src/containers',
@@ -47,7 +48,7 @@ var config = {
         exclude: /node_modules/,
         loaders: ['eslint-loader']
       }
-    ],    
+    ],
     loaders: [
       { test: /\.(js|jsx)?$/, loader: 'babel', exclude: /node_modules/ },
       {

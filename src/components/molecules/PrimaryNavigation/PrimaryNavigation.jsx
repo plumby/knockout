@@ -5,7 +5,7 @@ const PrimaryNavigation = (props) => {
   return (
     <nav {...props}>
       <Link to="/">Root</Link>
-      <Link to="/test">Test</Link>
+      <Link to="/registration">Registration</Link>
     </nav>
   )
 }
