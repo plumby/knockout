@@ -1,6 +1,5 @@
 import React from 'react';
 import { Control, Form } from 'react-redux-form';
-import Redirect from 'react-router/Redirect'
 
 
 class RegistrationForm extends React.Component {
@@ -17,12 +16,6 @@ class RegistrationForm extends React.Component {
     // etc.
   }
   render() {
-    const {isAuthenticated,from} = this.props;
-
-    if (isAuthenticated) {
-      return (<Redirect to={from || '/'} />)
-    }
-
     return (
       <Form
         model="forms.registration"

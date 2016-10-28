@@ -44,7 +44,7 @@ const initPlayers = {
 const allPlayers = (state = initPlayers, action) => {
   switch (action.type) {
     case types.REGISTER:
-      return {...state,[action.id]:action.player}
+      return {...state,[action.id]:{ ...action.player,id:action.id}}
     default:
       return state;
   }
@@ -76,9 +76,19 @@ const playerBeingEdited = (state = null, action) => {
 
 
 export const getPlayers = (state) =>
-  state.players.map((player) =>
-    ({...player,
-     beingEdited:player.id===state.playerBeingEdited}))
+  Object.entries(state.allPlayers).map(([id,player]) => {
+    return ({
+      ...player,
+      id,
+      beingEdited:id===state.playerBeingEdited})
+  })
+
+
+// export const getPlayers = (state) =>
+//  state.players.map((player) =>
+//    ({...player,
+//     beingEdited:player.id===state.playerBeingEdited}))
+
 
 export const isPlayerBeingEdited = (state) => state.playerBeingEdited!==null;
 

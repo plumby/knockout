@@ -5,10 +5,15 @@ import {register} from 'actions';
 import LoginForm from './LoginForm';
 
 
-function mapStateToProps(state) {
+function mapStateToProps(state,ownProps) {
+  // console.log(state,ownProps);
+
+  console.log();
+
 
   const props = {
-    isAuthenticated:isAuthenticated(state)
+    isAuthenticated:isAuthenticated(state),
+    from:ownProps.location.state.from.pathname || '/'
   };
   return props;
 }

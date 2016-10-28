@@ -1,9 +1,14 @@
 import React from 'react';
+
+// const LoginForm = () => (<div>XXX</div>)
+//(<div>A</div>)
+
+//
 import { Control, Form } from 'react-redux-form';
 import Redirect from 'react-router/Redirect'
 
 
-class RegistrationForm extends React.Component {
+class LoginForm extends React.Component {
   handleSubmit(user) {
     const { actions } = this.props;
 
@@ -17,22 +22,27 @@ class RegistrationForm extends React.Component {
     // etc.
   }
   render() {
+
     const {isAuthenticated,from} = this.props;
+
+    // const from='/'
+
+    console.log(from);
 
     if (isAuthenticated) {
       return (<Redirect to={from || '/'} />)
     }
 
+    // return (<div>DDD</div>)
     return (
       <Form
-        model="forms.registration"
+        model="forms.login"
         onSubmit={(user) => this.handleSubmit(user)}
       >
         <label>Name</label>
-        <Control.text model="forms.registration.name" />
-
+        <Control.text model="forms.login.name" />
         <label>Password:</label>
-        <Control.text model="forms.registration.password" />
+        <Control.text model="forms.login.password" />
 
         <button type="submit">
           Login
@@ -42,4 +52,9 @@ class RegistrationForm extends React.Component {
   }
 }
 
-export default RegistrationForm
+//
+//
+
+
+
+export default LoginForm

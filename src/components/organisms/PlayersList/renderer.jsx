@@ -7,7 +7,7 @@ const PlayersList = ({players,inEdit,actions}) => (
 
     {players.map((player) => (
       <PlayerBox
-        key={player.name}
+        key={player.id}
         editButton={!inEdit}
         player={player}
         actions={actions}

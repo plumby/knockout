@@ -5,6 +5,7 @@ const PrimaryNavigation = (props) => {
   return (
     <nav {...props}>
       <Link to="/">Root</Link>
+      <Link to="/players">Players</Link>
       <Link to="/registration">Registration</Link>
     </nav>
   )
