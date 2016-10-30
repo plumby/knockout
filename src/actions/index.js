@@ -16,20 +16,6 @@ export function editPlayer(playerId) {
   };
 }
 
-// export function register(registration) {
-//
-//   return dispatch => {
-//     api.register(registration)
-//     .then((user) => {
-//       dispatch({
-//         type:types.REGISTER,
-//         player:user
-//       })
-//     })
-//   }
-// }
-
-
 export function register(registration) {
   return {
     type: types.REQUEST_REGISTRATION,
@@ -78,5 +64,18 @@ export function logout() {
 export function loggedOut() {
   return {
     type: types.LOGGED_OUT
+  }
+}
+
+export function recordError(errorText) {
+  return {
+    type: types.ERROR,
+    errorText
+  }
+}
+
+export function clearErrors() {
+  return {
+    type: types.CLEAR_ERROR
   }
 }

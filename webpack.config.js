@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 var ip = process.env.IP || '0.0.0.0'
 var port = process.env.PORT || 3000
@@ -40,7 +41,8 @@ var config = {
     new ExtractTextPlugin('styles.css'),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': "'" + process.env.NODE_ENV + "'"
-    })
+    }),
+    new DashboardPlugin()
   ],
   module: {
     preLoaders: [

@@ -4,6 +4,7 @@ import randomNumbers, * as fromRandomNumbers from './randomNumbers'
 import forms from './forms'
 import players, * as fromPlayers from './players'
 import user, * as fromUser from './user'
+import errors, * as fromErrors from './errors'
 
 export const getRandomNumbers = (state) =>
   fromRandomNumbers.getRandomNumbers(state.randomNumbers);
@@ -21,11 +22,16 @@ export const getCurrentUser = (state) =>
 export const isAuthenticated = state =>
   fromUser.isAuthenticated(state.user)
 
+export const getErrors = (state) =>
+  fromErrors.getErrors(state.errors)
+
+
 const rootReducer = combineReducers({
   randomNumbers,
   players,
   forms,
-  user
+  user,
+  errors
 });
 
 export default rootReducer;

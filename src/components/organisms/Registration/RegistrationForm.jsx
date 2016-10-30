@@ -1,5 +1,6 @@
 import React from 'react';
 import { Control, Form } from 'react-redux-form';
+import style from './style.css'
 
 
 class RegistrationForm extends React.Component {
@@ -18,17 +19,22 @@ class RegistrationForm extends React.Component {
   render() {
     return (
       <Form
+        className={style.login}
         model="forms.registration"
         onSubmit={(user) => this.handleSubmit(user)}
       >
         <label>Name</label>
-        <Control.text model="forms.registration.name" />
+        <Control.text
+          className={style.input}
+          model="forms.registration.name" />
 
         <label>Password:</label>
-        <Control.text model="forms.registration.password" />
+        <Control.text
+          className={style.input}
+          model="forms.registration.password" />
 
-        <button type="submit">
-          Finish registration!
+        <button className={style.btn} type="submit">
+          Finish registration
         </button>
       </Form>
     );

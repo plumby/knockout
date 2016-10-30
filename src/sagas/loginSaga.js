@@ -20,34 +20,19 @@ function* login(action) {
     yield put(actions.loggedIn(user));
     yield loadPlayers();
   } catch (e) {
-      // yield put({type: "USER_FETCH_FAILED", message: e.message});
+    yield put(actions.recordError(e.message));
   }
 }
 
 function* logout() {
   try {
     yield call(api.logout);
+    yield put(actions.recordError('Logging out'));
     yield put(actions.loggedOut());
   } catch (e) {
-      // yield put({type: "USER_FETCH_FAILED", message: e.message});
+    yield put(actions.recordError(e.message));
   }
 }
-
-
-
-// export function register(registration) {
-//
-//   return dispatch => {
-//     api.register(registration)
-//     .then((user) => {
-//       dispatch({
-//         type:types.REGISTER,
-//         player:user
-//       })
-//     })
-//   }
-// }
-
 
 function* register(action) {
   try {
@@ -55,8 +40,7 @@ function* register(action) {
     yield put(actions.registered(user))
     yield loadPlayers();
   } catch (e) {
-    //
-    console.err(e)
+    yield put(actions.recordError(e.message));
   }
 }
 

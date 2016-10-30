@@ -85,7 +85,6 @@
     "no-undef-init": 2,
     "no-undef": 2,
     "no-undefined": 2,
-    "no-unused-vars": ["error", { "vars": "all", "args": "after-used" }]  ,
     "no-use-before-define": [2,"nofunc"],
     "no-lonely-if": 2,
     "no-class-assign": 2,
@@ -111,6 +110,11 @@
     "import/prefer-default-export": 0,
     "react/jsx-closing-bracket-location": 0,
     "no-unused-expressions": 0,
-    "import/no-extraneous-dependencies": 0
+    "import/no-extraneous-dependencies": 0,
+    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used" }]  ,
+    "class-methods-use-this": 1,
+    "react/jsx-first-prop-new-line": 1,
+    "jsx-a11y/label-has-for": 0
+
   }
 }
