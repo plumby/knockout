@@ -1,25 +1,28 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {isAuthenticated} from 'reducers';
-import {register} from 'actions';
+import {login} from 'actions';
 import LoginForm from './LoginForm';
 
 
 function mapStateToProps(state,ownProps) {
-  // console.log(state,ownProps);
+  let from;
 
-  console.log();
-
+  try {
+    from = ownProps.location.state.from.pathname
+  } catch (e) {
+    from = '/'
+  }
 
   const props = {
     isAuthenticated:isAuthenticated(state),
-    from:ownProps.location.state.from.pathname || '/'
+    from
   };
   return props;
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = {register};
+  const actions = {login};
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }

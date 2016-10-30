@@ -1,15 +1,27 @@
 .link {
-  display: flex;
+  /*display: flex;*/
   list-style: none;
   font-weight: 200;
-  color: black;
+  color: white;
   font-size: 1.25rem;
   padding-left: 10px;
+  /*height: 100px;*/
+  padding-top :20px;
+  padding-bottom : 20px;
+  width: 120px;
   text-decoration:none;
+  display: inline-block;
+  text-align: center;
+  border: 1px;
 }
+
 
 
 .link:hover {
   color: red;
-  text-decoration:underline;
+  /*background: -moz-linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7));*/
+  background: -webkit-linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2));
+  /*background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7));*/
+  /*filter: unquote("progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3000000', endColorstr='#b3000000',GradientType=0 )");*/
+  /*text-decoration:underline;*/
 }

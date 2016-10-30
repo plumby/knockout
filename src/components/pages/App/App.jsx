@@ -1,11 +1,12 @@
 import React from 'react'
 import { Match } from 'react-router'
-
 import { Header, PlayersPage, RegistrationPage, HomePage, LoginPage, MatchOnAuth } from 'components'
+import style from './style.css'
+
 
 const App = () => {
   return (
-    <div>
+    <div className={style.test}>
       <Header />
       <Match exactly pattern="/" component={HomePage} />
       <MatchOnAuth pattern="/players" component={PlayersPage} />

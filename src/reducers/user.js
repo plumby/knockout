@@ -2,10 +2,10 @@ import types from 'actions/types';
 
 const user = (state = null, action) => {
   switch (action.type) {
-    case types.SIGN_IN:
+    case types.LOGIN:
     case types.REGISTER:
-      return action.id;
-    case types.SIGN_OUT:
+      return action.player.id;
+    case types.LOGOUT:
       return null
     default:
       return state;

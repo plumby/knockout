@@ -1,0 +1,31 @@
+.navBarStyle {
+  margin: 0;
+  padding: 2px;
+  xoverflow: hidden;
+  /*background-color: blue;*/
+  /*color: white;*/
+  /*display: inline-block;*/
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight:normal;
+  /*text-align:center;*/
+  /*padding-top:60px;*/
+  color:#fff;
+  /*background-color: #EBA39E;*/
+  background: #1f3b08; /* Old browsers */
+  background: -moz-linear-gradient(top,  #1f3b08 0%, #627d4d 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #1f3b08 0%,#627d4d 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #1f3b08 0%,#627d4d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f3b08', endColorstr='#627d4d',GradientType=0 ); /* IE6-9 */
+}
+
+.logoutButton {
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    xborder: 3px solid #73AD21;
+    padding: 5px;
+    margin: 20px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-weight: 200;
+    font-size: 110%;
+}
