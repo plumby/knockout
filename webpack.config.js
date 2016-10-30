@@ -29,6 +29,7 @@ var config = {
       containers: 'src/containers',
       reducers: 'src/reducers',
       routes: 'src/routes',
+      sagas: 'src/sagas',
       store: 'src/store'
     }
   },

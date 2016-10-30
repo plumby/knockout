@@ -1,5 +1,4 @@
-import * as api from 'api'
-// import uuid from 'uuid'
+// import * as api from 'api'
 import types from './types';
 
 export function addRandomNumber() {
@@ -17,45 +16,67 @@ export function editPlayer(playerId) {
   };
 }
 
-export function register(registration) {
+// export function register(registration) {
+//
+//   return dispatch => {
+//     api.register(registration)
+//     .then((user) => {
+//       dispatch({
+//         type:types.REGISTER,
+//         player:user
+//       })
+//     })
+//   }
+// }
 
-  return dispatch => {
-    api.register(registration)
-    .then((user) => {
-      dispatch({
-        type:types.REGISTER,
-        player:user
-      })
-    })
+
+export function register(registration) {
+  return {
+    type: types.REQUEST_REGISTRATION,
+    registration
+  }
+}
+
+export function registered(user) {
+  return {
+    type: types.REGISTERED,
+    user
   }
 }
 
 
-export function login(loginInfo) {
-  return dispatch => {
-    api.login(loginInfo)
-    .then((user) => {
-      dispatch({
-        type:types.LOGIN,
-        player:user
-      })
-    })
-    .then(api.loadPlayers()
-      .then((players) => {
-        dispatch({
-          type:types.LOAD_PLAYERS,
-          players
-        })
-      })
-    )
+
+
+export function login(credentials) {
+  return {
+    type: types.REQUEST_LOGIN,
+    credentials
+  }
+}
+
+export function loggedIn(user) {
+  return {
+    type: types.LOGGED_IN,
+    user
+  }
+}
+
+export function playersLoaded(players) {
+  return {
+    type: types.LOADED_PLAYERS,
+    players
   }
 }
 
 export function logout() {
-  return dispatch => {
-    api.logout()
-      .then(dispatch({
-        type:types.LOGOUT
-      }))
+  return {
+    type: types.REQUEST_LOGOUT
+  }
+}
+
+
+export function loggedOut() {
+  return {
+    type: types.LOGGED_OUT
   }
 }

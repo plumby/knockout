@@ -8,9 +8,9 @@ const initPlayers = {
 
 const allPlayers = (state = initPlayers, action) => {
   switch (action.type) {
-    case types.LOAD_PLAYERS:
+    case types.LOADED_PLAYERS:
       return {...state,...action.players}
-    case types.REGISTER:
+    case types.REGISTERED:
       return {...state,[action.id]:{ ...action.player,id:action.id}}
     default:
       return state;

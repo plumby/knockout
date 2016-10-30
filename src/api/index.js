@@ -60,7 +60,7 @@ export const login = (user) => {
       const player=players.find(matchingName(user.name));
 
       resolve(player);
-    }, 2000);
+    }, 1000);
   });
 }
 
@@ -69,7 +69,7 @@ export const logout = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true);
-    }, 2000);
+    }, 500);
   });
 }
 
@@ -91,6 +91,6 @@ export const loadPlayers = () => {
     // console.log(`Logging in ${user.name}`);
     setTimeout(() => {
       resolve(players);
-    }, 2000);
+    }, 1000);
   });
 }
