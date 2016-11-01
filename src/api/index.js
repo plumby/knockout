@@ -25,26 +25,7 @@ const players = [
 
 
 
-// {
-//   '1': {
-//     name:'Lorem ipsum dolor sit amet amet.'
-//   },
-//   '2':{
-//     name:'Nulla bibendum purus massa nunc.'
-//   },
-//   '3':
-//   {
-//     name:'Fusce a lacinia magna cras amet.'
-//   },
-//   '4':
-//   {
-//     name:'Rhoncus magna.'
-//   },
-//   '5':
-//   {
-//     name'a'
-//   }
-// }
+
 
 
 const matchingName = (name) => {
@@ -72,6 +53,18 @@ export const logout = () => {
     }, 500);
   });
 }
+
+
+export const checkAvailability = (username) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+
+      resolve(!(players.find((player) =>player.name===username)))
+    }, 1000);
+  });
+}
+
+
 
 
 export const register = (registration) => {

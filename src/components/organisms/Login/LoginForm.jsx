@@ -1,5 +1,6 @@
 import React from 'react';
 import { Control, Form } from 'react-redux-form';
+// import { isEmail, isNull } from 'validator';
 import Redirect from 'react-router/Redirect'
 import style from './style.css'
 
@@ -26,13 +27,22 @@ class LoginForm extends React.Component {
         model="forms.login"
         onSubmit={(user) => this.handleSubmit(user)}
       >
+
+        <h2>Login</h2>
+
         <div>
           <label>Name</label>
           <Control.text className={style.input} model="forms.login.name" />
         </div>
         <div>
           <label>Password:</label>
-          <Control.text className={style.input} model="forms.login.password" />
+          <Control.text
+            className={style.input}
+            type="password"
+            validators={{
+              required: (val) => val && val.length>4,
+            }}
+            model="forms.login.password" />
         </div>
         <button className={style.btn} type="submit">
           Login

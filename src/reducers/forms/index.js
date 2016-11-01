@@ -1,9 +1,9 @@
 import { combineForms } from 'react-redux-form';
 
-const initialLogin = { name: 'a', password:'' };
-const initialUser = { name: '', password:'' };
+const initialRegistration = { name: 'a', password:'', confirmPassword:'' };
+const initialLogin = { name: '', password:'' };
 
 export default combineForms({
-  registration: initialUser,
+  registration: initialRegistration,
   login:initialLogin
 }, 'forms');
