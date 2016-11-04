@@ -1,5 +1,5 @@
 import React from 'react';
-import { Control, Form, Errors/*,actions as formActions*/ } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 import * as api from 'api'
 import style from './style.css'
 
@@ -10,39 +10,26 @@ const passwordsMatch = ({ password, confirmPassword }) => {
   return password === confirmPassword;
 };
 
+const required = (val) => val && val.length > 4
 
-
-//
-// function checkAvailability(username) {
-//   console.log('checking ',username);
-//   // api.checkAvailability(username);
-// }
-
-
-
-// function checkAvailability(username) {
-//   console.log('checking ',username);
-//   return (dispatch) => {
-//     dispatch(formActions.setPending('user.username', true));
-//
-//     // some asynchronous validation function that returns a promise
-//     api.checkAvailability(username)
-//       .then((response) => {
-//         dispatch(formActions.setValidity('user.username', {
-//           available: response.available
-//         }));
-//
-//         dispatch(formActions.setPending('user.username', false));
-//       });
-//   }
-// }
+const nameAvailableAsync = (val,done) => api.checkAvailability(val)
+  .then(res => {
+    return done(res)
+  })
 
 
 class RegistrationForm extends React.Component {
   handleSubmit(user) {
-    const { actions } = this.props;
+    const { actions, formActions } = this.props;
 
-    actions.register(user)
+    api.checkAvailability(user.name)
+    .then(available => {
+      available ?
+        actions.register(user):
+        formActions.setValidity('forms.registration.name', {available:false})
+    })
+
+    //actions.register(user)
   }
   render() {
     return (
@@ -51,7 +38,8 @@ class RegistrationForm extends React.Component {
         model="forms.registration"
         onSubmit={(user) => this.handleSubmit(user)}
         validators={{
-          '': { passwordsMatch }
+          '': { passwordsMatch },
+          password: {required}
         }}
       >
         <h2>Register new account</h2>
@@ -59,10 +47,9 @@ class RegistrationForm extends React.Component {
         <Control.text
           className={style.input}
           asyncValidators={{
-            available: (val, done) => api.checkAvailability(val)
-              .then(res => done(res))
+            available: nameAvailableAsync
           }}
-          model="forms.registration.name" />
+          model=".name" />
         <Errors
           model="forms.registration.name"
           className={style.error}
@@ -75,11 +62,7 @@ class RegistrationForm extends React.Component {
         <Control.text
           type="password"
           className={style.input}
-          validators={{
-            required: (val) => val && val.length,
-            minLength: minLength(5)
-          }}
-          model="forms.registration.password" />
+          model=".password" />
         <Errors
           model="forms.registration.password"
           className={style.error}
@@ -96,7 +79,7 @@ class RegistrationForm extends React.Component {
             required: (val) => val && val.length,
             minLength: minLength(5)
           }}
-          model="forms.registration.confirmPassword" />
+          model=".confirmPassword" />
 
         <Errors
           className={style.error}
