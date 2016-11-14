@@ -8,7 +8,7 @@ var DEBUG = process.env.NODE_ENV !== 'production'
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = {
-  devtool: DEBUG ? 'eval' : false,
+  devtool: DEBUG ? 'source-map' : false,
   entry: [
     path.join(__dirname, 'src')
   ],
@@ -24,6 +24,7 @@ var config = {
       path.resolve(__dirname)
     ],
     alias: {
+      config: 'src/config',
       api: 'src/api',
       actions: 'src/actions',
       components: 'src/components',

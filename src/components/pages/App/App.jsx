@@ -9,10 +9,12 @@ const App = () => {
     <div className={style.test}>
       <ErrorWindow />
       <Header />
-      <Match exactly pattern="/" component={HomePage} />
-      <MatchOnAuth pattern="/players" component={PlayersPage} />
-      <Match exactly pattern="/registration" component={RegistrationPage} />
-      <Match pattern="/login" component={LoginPage} />
+      <div className={style.mainBody}>
+        <Match exactly pattern="/" component={HomePage} />
+        <MatchOnAuth pattern="/players" component={PlayersPage} />
+        <Match exactly pattern="/registration" component={RegistrationPage} />
+        <Match pattern="/login" component={LoginPage} />
+      </div>
     </div>
   )
 }

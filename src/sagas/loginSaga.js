@@ -4,7 +4,6 @@ import * as api from 'api'
 import types from 'actions/types';
 import * as actions from 'actions'
 
-
 function* loadPlayers() {
   try {
     const players=yield call(api.loadPlayers);

@@ -2,8 +2,8 @@ import React from 'react';
 import { Control, Form } from 'react-redux-form';
 // import { isEmail, isNull } from 'validator';
 import Redirect from 'react-router/Redirect'
-import style from './style.css'
-
+//import style from './style.css'
+import formStyle from 'components/commonStyles/form.css'
 
 
 class LoginForm extends React.Component {
@@ -23,28 +23,24 @@ class LoginForm extends React.Component {
     // return (<div>DDD</div>)
     return (
       <Form
-        className={style.login}
+        className={formStyle.form}
         model="forms.login"
         onSubmit={(user) => this.handleSubmit(user)}
       >
-
         <h2>Login</h2>
 
-        <div>
-          <label>Name</label>
-          <Control.text className={style.input} model="forms.login.name" />
-        </div>
-        <div>
-          <label>Password:</label>
-          <Control.text
-            className={style.input}
-            type="password"
-            validators={{
-              required: (val) => val && val.length>4,
-            }}
-            model="forms.login.password" />
-        </div>
-        <button className={style.btn} type="submit">
+        <label>Name</label>
+        <Control.text model="forms.login.name" />
+
+        <label>Password:</label>
+        <Control.text
+          type="password"
+          validators={{
+            required: (val) => val && val.length>4,
+          }}
+          model="forms.login.password" />
+
+        <button type="submit">
           Login
         </button>
       </Form>

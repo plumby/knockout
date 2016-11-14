@@ -39,7 +39,6 @@ export const login = (user) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       const player=players.find(matchingName(user.name));
-
       resolve(player);
     }, 1000);
   });
@@ -58,7 +57,6 @@ export const logout = () => {
 export const checkAvailability = (username) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-
       resolve(!(players.find((player) =>player.name===username)))
     }, 1000);
   });
@@ -72,8 +70,9 @@ export const register = (registration) => {
     // console.log(`Logging in ${user.name}`);
     setTimeout(() => {
       const id=uuid.v4();
-      const user={...registration,id}
-      players[id]=user;
+      const user={name:registration.name,id}
+      players.push(user)
+//      players[id]=user;
       resolve(user);
     }, 2000);
   });
